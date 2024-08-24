@@ -40,7 +40,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), ip_addr("::"), nPort(53), nP2Port(0), nMinimumHeight(0), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false), ipv4_proxy(NULL), ipv6_proxy(NULL), magic(NULL) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "Blackcoin-seeder\n"
+    static const char *help = "USDG-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -465,12 +465,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"electrum1.blackcoin.nl", "electrum2.blackcoin.nl", "electrum3.blackcoin.nl", "vps.blackcoin.nl", "v26blk1.blackcoin.nl", "2mzhm7vwjwzhamc3g5fllu3peh3n3exo2pdbumksjzacu6fwmbixkhyd.onion", ""};
-static const string testnet_seeds[] = {"electrum1.blackcoin.nl",
-                                       "electrum2.blackcoin.nl",
-                                       "electrum3.blackcoin.nl",
-                                       "vps.blackcoin.nl",
-                                       ""};
+static const string mainnet_seeds[] = {"electrum1.blackcoin.nl", "electrum2.blackcoin.nl", "electrum3.blackcoin.nl", "v5x6mvgdpepqd7znuujc6brbbkywcu7ydvedvth4vgjkm4bepba67nyd.onion", "fz6voqfbna7isvki3ba63crfrdzriteuzu56nhwb2xynqfcybuzjq6yd.onion", "jwyycldj6xyg3bt6iovezeqjz422sa77m2qn2uulzqmuokjy3etnahqd.onion", ""};
+static const string testnet_seeds[] = {"electrum1.blackcoin.nl", "electrum2.blackcoin.nl", "electrum3.blackcoin.nl", "fpu6feuy6cvnvze3qovlykhbuos2u7ndske3lggkxxmqgmsgzjnxzeqd.onion", "5snjigztr52rw7vwpwajh5htuvtvdsnh5tzyec64x5kwdbc763lychqd.onion", "p2zdtnhia6xjuyxsufza3wiojvizsa2mv4jm5pdfoxxtjwm6on5svxyd.onion", ""};
 static const string *seeds = mainnet_seeds;
 static vector<string> vSeeds;
 
@@ -534,10 +530,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0xcd;
-      pchMessageStart[1] = 0xf2;
-      pchMessageStart[2] = 0xc0;
-      pchMessageStart[3] = 0xef;
+      pchMessageStart[0] = 0x06;
+      pchMessageStart[1] = 0x27;
+      pchMessageStart[2] = 0x18;
+      pchMessageStart[3] = 0x09;
       seeds = testnet_seeds;
       fTestNet = true;
   }

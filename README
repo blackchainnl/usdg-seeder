@@ -1,7 +1,7 @@
 blackcoin-seeder
 ==============
 
-Blackcoin-seeder is a crawler for the Blackcoin network, which exposes a list
+USDG-seeder is a crawler for the USDG network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
